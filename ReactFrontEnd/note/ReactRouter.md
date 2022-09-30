@@ -379,3 +379,44 @@ function App() {
   );
 }
 ```
+
+# Multi Router Group
+
+The router group are wraped in a `Routes` component, you can define multiple router group in router v6.
+
+Each Routes are independent.
+
+```jsx
+function App() {
+  return (
+    <div>
+      <Sidebar>
+        <Routes>
+          <Route path="/" element={<MainNav />} />
+          <Route
+            path="dashboard"
+            element={<DashboardNav />}
+          />
+        </Routes>
+      </Sidebar>
+
+      <MainContent>
+        <Routes>
+          <Route path="/" element={<Home />}>
+            <Route path="about" element={<About />} />
+            <Route path="support" element={<Support />} />
+          </Route>
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route path="invoices" element={<Invoices />} />
+            <Route path="team" element={<Team />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </MainContent>
+    </div>
+  );
+}
+```
+## Tips
+
+When child router needs routes component, then you need to add `/*` in it's father router, the number of `*` you need to add depends on the level of your child router.
