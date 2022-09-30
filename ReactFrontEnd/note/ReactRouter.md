@@ -246,3 +246,25 @@ function Invoice() {
 
 Router nesting is a powerful feature of React Router. It's helpful to reduce the complexity of your code and the difficuty of layout design.
 
+For Exp:
+
+```jsx
+function App() {
+  return (
+    <Routes>
+      <Route path="invoices" element={<Invoices />}>
+        <Route path=":invoiceId" element={<Invoice />} />
+        <Route path="sent" element={<SentInvoices />} />
+      </Route>
+    </Routes>
+  );
+}
+
+/*
+Now Router can match the following path:
+
+/invoices => <Invoices />
+/invoices/:invoiceId => Send arg invoiceId to =>  <Invoice />
+/invoices/sent => <SentInvoices />
+*/
+```
