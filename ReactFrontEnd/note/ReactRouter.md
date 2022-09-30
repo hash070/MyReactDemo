@@ -364,3 +364,18 @@ When you added `index` to the router, it will defaultly render this router's com
 ```
 In this case, the two `Link` component will route the url to `/dashboard/invoices` and `/dashboard/team`, this is the relative router.
 
+# 404 Router
+
+When there is no router match the requested url, router will find wether the default router `path=*` is exist, which will match **any pattern** of url with **lowest priority**.
+
+```jsx
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
+```
