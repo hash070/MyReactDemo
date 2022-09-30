@@ -198,3 +198,51 @@ function Invoices() {
   );
 }
 ```
+
+# Router Args
+
+We can use `:style` to send args to router, and use `useParams()` func to get args.
+
+For Exp
+
+```jsx
+import { Routes, Route, useParams } from "react-router-dom";
+
+function App() {
+  return (
+    <Routes>
+      <Route
+        path="invoices/:invoiceId"
+        element={<Invoice />}
+      />
+    </Routes>
+  );
+}
+
+function Invoice() {
+  let params = useParams();
+  return <h1>Invoice {params.invoiceId}</h1>;
+}
+```
+
+Another Exp, use router args to fetch async data.
+
+```jsx
+function Invoice() {
+  let { invoiceId } = useParams();
+  // useFakeFetch() func can be reguraded as a async request
+  let invoice = useFakeFetch(`/api/invoices/${invoiceId}`);
+  return invoice ? (
+    <div>
+      <h1>{invoice.customerName}</h1>
+    </div>
+  ) : (
+    <Loading />
+  );
+}
+```
+
+# Nested Router
+
+Router nesting is a powerful feature of React Router. It's helpful to reduce the complexity of your code and the difficuty of layout design.
+
