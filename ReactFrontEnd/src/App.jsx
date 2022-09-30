@@ -1,11 +1,11 @@
 import { Button, Checkbox, Form, Input } from 'antd';
 import axios from 'axios';
 import React from 'react';
-import { useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router';
 
 
 const LoginForm = () => {
-const navigate = useNavigate();
+// const navigate = useNavigate();
 
   const onFinish = (values) => {
     console.log('Success:', values);
@@ -15,7 +15,7 @@ const navigate = useNavigate();
       console.log("登录成功");
       console.log(res.data);
 
-      navigate.push('/home');
+      // navigate.push('/home');
     })
   };
 
