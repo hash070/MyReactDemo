@@ -344,3 +344,23 @@ When you added `index` to the router, it will defaultly render this router's com
 
 `Index Router` can be decleared in any level of the router tree.
 
+# Link in Nested Router
+
+```jsx
+...
+// <Dashboard />
+<nav>
+    <Link to="invoices">Invoices</Link>{" "}
+    <Link to="team">Team</Link>
+</nav>
+...
+<Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="dashboard" element={<Dashboard />}>
+        <Route path="invoices" element={<Invoices />} />
+        <Route path="team" element={<Team />} />
+    </Route>
+</Routes>
+```
+In this case, the two `Link` component will route the url to `/dashboard/invoices` and `/dashboard/team`, this is the relative router.
+
