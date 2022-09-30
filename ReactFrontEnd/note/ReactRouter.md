@@ -317,3 +317,30 @@ function Dashboard() {
   return <h1>Dashboard</h1>;
 }
 ```
+
+# Default Router
+
+When one router contains multiple child router, when the requested url matchs the father router, then how the child router be rendered?
+
+In this case, we can use `index` to set the default router that can be render defaultly.
+
+For Exp:
+
+```jsx
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Activity />} />
+        <Route path="invoices" element={<Invoices />} />
+        <Route path="activity" element={<Activity />} />
+      </Route>
+    </Routes>
+  );
+}
+```
+
+When you added `index` to the router, it will defaultly render this router's component.
+
+`Index Router` can be decleared in any level of the router tree.
+
