@@ -70,7 +70,7 @@ That's how to fast start to use React Router.
 
 ## Configure your Router
 
-For exp
+For Exp
 
 ```jsx
 import ReactDOM from "react-dom/client";
@@ -78,8 +78,46 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Outlet,
 } from "react-router-dom";
-// import your route components too
+
+function App() {
+  return (
+
+    <div>
+      <Outlet />
+      <h1>App
+      </h1>
+    </div>
+
+  )
+
+
+}
+
+function Home() {
+  return <h1>Home</h1>;
+}
+
+function Teams() {
+  return <h1>Teams<Outlet /></h1>;
+}
+
+function Team() {
+  return <h1>Team</h1>;
+}
+
+function NewTeamForm() {
+  return <h1>NewTeamForm</h1>;
+}
+
+function LeagueStandings() {
+  return <h1>LeagueStandings</h1>;
+}
+
+function NotFound404() {
+  return 404;
+}
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -87,6 +125,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
+      <Route path="/*" element={<NotFound404 />} />
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
         <Route path="teams" element={<Teams />}>
@@ -100,23 +139,15 @@ root.render(
 );
 
 /*
-base: `/`
-
-index to `<Home />`
-
-`/teams` to `<Teams />`
-
-`/teams/new` to `<NewTeamForm />`
-
-*/
-
-/*
 Tips:
 
+<Route path="/*" element={<NotFound404 />} />
 <Route path="teams/:teamId" element={<Team />} />
 <Route path="teams/new" element={<NewTeamForm />} />
 
-Router `teams/new` will match both `teams/new` at line1 and  `teams/:teamId` at line2, but the line2 is more accurate, so v6 router will choose line2.
+line1 is a wildcard route, it will match any path expect root path ("/") (maybe can be used to show 404 page.
+
+Router `teams/new` will match both `teams/new` at line2 and  `teams/:teamId` at line3, but the line3 is more accurate, so v6 router will choose line2.
 
 */
 ```
@@ -137,7 +168,7 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <nav>
+      <nav>  
         <Link to="/">Home</Link> |{" "}
         <Link to="about">About</Link>
       </nav>
