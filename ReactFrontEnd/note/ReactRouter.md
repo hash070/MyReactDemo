@@ -4,7 +4,7 @@
 
 For exp, React Router make www.hash070.top/ connected to www.hash070.top/about or www.hash070.top/archive。
 
-# Sounds great! How do I get started?
+# Sounds great! How can I get started?
 
 ## Install it
 
@@ -64,7 +64,7 @@ function App() {
 }
 ```
 
-That's how to fast start to use React Router.
+That's how to fast start with React Router.
 
 # Further Study
 

@@ -1,93 +1,27 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import axios from 'axios';
-import React from 'react';
-// import { useNavigate } from 'react-router';
+
+import {React,Fragment} from 'react';
+import { Routes, Route, Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import AdminPaneLayout from './views/AdminPane';
+import Favicon from 'react-favicon';
+//引入Home
+import Home from './views/Home.jsx'
+import LoginForm from './views/Login.jsx'
 
 
-const LoginForm = () => {
-// const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    console.log('Success:', values);
 
-    axios.post('/api/login', values)
-    .then(res => {
-      console.log("登录成功");
-      console.log(res.data);
-
-      // navigate.push('/home');
-    })
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
+const App = () => {
   return (
-    <Form
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your username!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+    <div className="App">
+      <Favicon url="/src/assets/favicon.ico"/>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/admin" element={<AdminPaneLayout />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </div>
   );
-};
+}
 
-export default LoginForm;
+export default App;

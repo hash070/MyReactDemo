@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 public class ReactDemoBackEndApplication {
-
-    //Auto Wire request body
-
-
     public static void main(String[] args) {
         SpringApplication.run(ReactDemoBackEndApplication.class, args);
     }
