@@ -14,7 +14,7 @@ const App = () => {
         <div className="App">
             <Favicon url="/src/assets/favicon.ico"/>
             <Routes>
-                <Route path="/" element={<LoginForm/>}/>
+                <Route path="/login" element={<LoginForm/>}/>
                 <Route path="/admin" element={<AdminPaneLayout/>}/>
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/register" element={<RegisterForm/>}/>

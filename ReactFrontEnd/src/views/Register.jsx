@@ -67,14 +67,13 @@ const RegisterForm = () => {
                             <Col span={16}>
                                 <Input
                                     prefix={<CheckCircleOutlined className="site-form-item-icon"/>}
-                                    placeholder="邮箱验证码"
-                                />
+                                    placeholder="邮箱验证码"/>
                             </Col>
                             <Col span={8}><Button>发送验证码</Button></Col>
                         </Row>
                     </div>
                     <br/>
-                    <Form.Item>
+                    <Form.Item className='regButton'>
                         <Button type="primary" htmlType="submit" className="login-form-button">
                             注册
                         </Button>

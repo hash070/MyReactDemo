@@ -24,6 +24,10 @@ const LoginForm = () => {
         console.log('Failed:', errorInfo);
     };
 
+    let onRegisterClick = () => {
+        navigate('/register');
+    }
+
     return (
         <div className='login-wrap'>
             <div>
@@ -53,19 +57,6 @@ const LoginForm = () => {
                             placeholder="密码"
                         />
                     </Form.Item>
-
-                    <div>
-                        <Row gutter={10}>
-                            <Col span={16}>
-                                <Input
-                                    prefix={<CheckCircleOutlined className="site-form-item-icon"/>}
-                                    placeholder="验证码"
-                                />
-                            </Col>
-                            <Col span={8}><Button>发送验证码</Button></Col>
-                        </Row>
-                    </div>
-                    <br/>
                     <Form.Item>
                         <Form.Item name="remember" valuePropName="checked" noStyle>
                             <Checkbox>记住我</Checkbox>
@@ -77,10 +68,23 @@ const LoginForm = () => {
                     </Form.Item>
 
                     <Form.Item>
-                        <Button type="primary" htmlType="submit" className="login-form-button">
-                            登录
-                        </Button>
-                        <a href="/register">注册</a>
+
+                        <Row>
+                            <Col span={6}>
+                                <Button type="primary" htmlType="submit" className="login-form-button">
+                                    登录
+                                </Button>
+                            </Col>
+                            <Col span={6}></Col>
+                            <Col span={6}></Col>
+                            <Col span={6}>
+                                <Button type="primary" onClick={onRegisterClick}>注册</Button>
+                            </Col>
+                        </Row>
+
+
+
+                        {/*<a href="/register">注册</a>*/}
                     </Form.Item>
                 </Form>
             </div>
