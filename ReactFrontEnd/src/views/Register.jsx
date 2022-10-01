@@ -6,17 +6,17 @@ import '../styles/Login.css';
 import {LockOutlined, UserOutlined, CheckCircleOutlined} from '@ant-design/icons';
 
 
-const LoginForm = () => {
+const RegisterForm = () => {
     const navigate = useNavigate();
 
     const onFinish = (values) => {
         console.log('Success:', values);
 
-        axios.post('/api/login', values)
+        axios.post('/api/register', values)
             .then(res => {
                 console.log("登录成功");
                 console.log(res.data);
-                navigate('/home');
+                navigate('/');
             })
     };
 
@@ -28,8 +28,7 @@ const LoginForm = () => {
         <div className='login-wrap'>
             <div>
                 <div className='form-header'>
-                    <h4 className='column'>登录</h4>
-                    <a href='/home'>账号注册</a>
+                    <h4 className='column'>账户注册</h4>
                 </div>
                 <br/>
                 <br/>
@@ -45,12 +44,21 @@ const LoginForm = () => {
                                placeholder="用户名"/>
                     </Form.Item>
                     <Form.Item
-                        name="password"
+                        name="password1"
                         rules={[{required: true, message: '请输入您的密码!'}]}>
                         <Input
                             prefix={<LockOutlined className="site-form-item-icon"/>}
                             type="password"
                             placeholder="密码"
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        name="password2"
+                        rules={[{required: true, message: '请输入您的密码!'}]}>
+                        <Input
+                            prefix={<LockOutlined className="site-form-item-icon"/>}
+                            type="password"
+                            placeholder="确认密码"
                         />
                     </Form.Item>
 
@@ -59,7 +67,7 @@ const LoginForm = () => {
                             <Col span={16}>
                                 <Input
                                     prefix={<CheckCircleOutlined className="site-form-item-icon"/>}
-                                    placeholder="验证码"
+                                    placeholder="邮箱验证码"
                                 />
                             </Col>
                             <Col span={8}><Button>发送验证码</Button></Col>
@@ -67,20 +75,9 @@ const LoginForm = () => {
                     </div>
                     <br/>
                     <Form.Item>
-                        <Form.Item name="remember" valuePropName="checked" noStyle>
-                            <Checkbox>记住我</Checkbox>
-                        </Form.Item>
-
-                        <a className="login-form-forgot" href="">
-                            忘记密码
-                        </a>
-                    </Form.Item>
-
-                    <Form.Item>
                         <Button type="primary" htmlType="submit" className="login-form-button">
-                            登录
+                            注册
                         </Button>
-                        <a href="/register">注册</a>
                     </Form.Item>
                 </Form>
             </div>
@@ -88,4 +85,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default RegisterForm;
