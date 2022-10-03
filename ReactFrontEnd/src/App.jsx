@@ -8,6 +8,7 @@ import Favicon from 'react-favicon';
 import Home from './views/Home.jsx'
 import LoginForm from './views/Login.jsx'
 import RegisterForm from "./views/Register.jsx";
+import MyTimer from "./toys/MyTimer.jsx";
 
 const App = () => {
     return (
@@ -18,6 +19,7 @@ const App = () => {
                 <Route path="/admin" element={<AdminPaneLayout/>}/>
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/register" element={<RegisterForm/>}/>
+                <Route path="/" element={<MyTimer/>}/>
             </Routes>
         </div>
     );
