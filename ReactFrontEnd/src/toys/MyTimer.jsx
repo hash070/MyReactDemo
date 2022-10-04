@@ -10,9 +10,10 @@ class MyTimer extends React.Component {
     //该方法会在组件已经被渲染到 DOM 中后运行
     componentDidMount() {
         //为了让Clock动起来，我们在这里设置一个定时器
+        //这里获取timerID是为了卸载组件时能清除定时器
         this.timerID = setInterval(
             () => this.tick(),
-            10
+            1000
         );
     }
 
@@ -33,7 +34,7 @@ class MyTimer extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hello, world!</h1>
+                <a>Hello, world!</a>
                 <h2>It is {this.state.date.toLocaleTimeString()}</h2>
             </div>
         );
