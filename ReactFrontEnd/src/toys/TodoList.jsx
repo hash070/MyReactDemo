@@ -70,6 +70,13 @@ class TodoList extends Component {
                     {this.state.list.length===0?<div>暂无代办事项</div>:null}
                     {/*方法二：与(&&)*/}
                     {this.state.list.length===0&&<div>暂无代办事项</div>}
+
+                {/*
+                如何在组件中直接渲染HTML标签：
+                 <div dangerouslySetInnerHTML={
+                      {__html: item.title}
+                 }></div>
+                */}
                 </ul>
             </div>
         );

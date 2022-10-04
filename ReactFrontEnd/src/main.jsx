@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client'
 import {BrowserRouter} from "react-router-dom";
 import {Button, DatePicker} from 'antd';
 import 'antd/dist/antd.css';
-import TodoList from "./toys/TodoList.jsx"; // or 'antd/dist/antd.less'
+import TodoList from "./toys/TodoList.jsx";
+import ConditionRenderTest from "./toys/ConditionRenderTest.jsx"; // or 'antd/dist/antd.less'
 // import App from './App.jsx'
 
 class AppTest extends Component {
@@ -41,7 +42,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <div>
         <React.StrictMode>
             <BrowserRouter>
-                <TodoList/>
+                <ConditionRenderTest/>
             </BrowserRouter>
         </React.StrictMode>
     </div>
