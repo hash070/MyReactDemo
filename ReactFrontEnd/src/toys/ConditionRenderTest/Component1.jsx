@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 
 class Component1 extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+
     render() {
         return (
             <div>
@@ -9,5 +15,9 @@ class Component1 extends Component {
         );
     }
 }
+
+Component1.defaultProps = {
+    name: "Component1"
+};
 
 export default Component1;
