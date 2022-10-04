@@ -49,7 +49,20 @@ class TodoList extends Component {
                     {
 
                         this.state.list.map((item) => (
-                            <li key={item.id}>{item.title}</li>
+                            <div key={item.id}>
+                                <li>{item.title}</li>
+                                <Button onClick={()=>{
+                                    this.setState({
+                                        list: this.state.list.filter((item2)=>item2.id!==item.id)
+                                        /**
+                                         * List filter
+                                         * filter会创建一个新数组，而不会修改旧数组，因此不会触犯React的不可变性规则
+                                         * 它返回一个新数组，其中包含所有通过测试条件的元素
+                                         */
+                                    })
+                                }}>删除</Button>
+                            </div>
+
                         ))
                     }
                 </ul>
