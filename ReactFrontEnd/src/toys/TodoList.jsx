@@ -3,6 +3,7 @@ import {Button, Input} from "antd";
 
 class TodoList extends Component {
     inputTextRef = React.createRef();
+    isEmpity=false;
 
     constructor(props) {
         super(props);
@@ -44,10 +45,10 @@ class TodoList extends Component {
                 <Button onClick={() => {
                     console.log(this.inputTextRef.current.value);
                     this.addTodoItem(this.inputTextRef.current.value);
+                    this.inputTextRef.current.value="";
                 }}>添加选项</Button>
                 <ul>
                     {
-
                         this.state.list.map((item) => (
                             <div key={item.id}>
                                 <li>{item.title}</li>
@@ -62,9 +63,13 @@ class TodoList extends Component {
                                     })
                                 }}>删除</Button>
                             </div>
-
                         ))
                     }
+                    {/*条件渲染*/}
+                    {/*方法一：三目运算符*/}
+                    {this.state.list.length===0?<div>暂无代办事项</div>:null}
+                    {/*方法二：与(&&)*/}
+                    {this.state.list.length===0&&<div>暂无代办事项</div>}
                 </ul>
             </div>
         );
