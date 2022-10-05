@@ -83,9 +83,8 @@ class TodoList extends Component {
                                 <Checkbox checked={item.isChecked} onChange={() => {
                                     this.checkItem(index)
                                 }}
-                                place
                                 >
-                                    {item.title}
+                                    <span style={{textDecoration:item.isChecked?"line-through":''}}>{item.title}</span>
                                     <Button onClick={() => {
                                         this.setState({
                                             list: this.state.list.filter((item2) => item2.id !== item.id)
