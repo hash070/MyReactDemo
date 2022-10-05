@@ -5,7 +5,8 @@ import {Button, DatePicker} from 'antd';
 import 'antd/dist/antd.css';
 import TodoList from "./toys/TodoList.jsx";
 import ConditionRenderTest from "./toys/ConditionRenderTest.jsx";
-import PropAndStatus from "./toys/PropAndStatus.jsx"; // or 'antd/dist/antd.less'
+import PropAndStatus from "./toys/PropAndStatus.jsx";
+import ControlledInput from "./toys/ControlledInput.jsx"; // or 'antd/dist/antd.less'
 // import App from './App.jsx'
 
 class AppTest extends Component {
@@ -43,7 +44,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <div>
         <React.StrictMode>
             <BrowserRouter>
-                <PropAndStatus/>
+                <ControlledInput/>
             </BrowserRouter>
         </React.StrictMode>
     </div>
