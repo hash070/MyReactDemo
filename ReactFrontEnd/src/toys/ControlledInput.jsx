@@ -17,8 +17,8 @@ class ControlledInput extends Component {
             //在React中更推荐使用受控组件，因为其功能性更强大。
             <div>
                 <input type="text" value={this.props.inputValue} onChange={(event)=>{
-                    this.setState({inputValue:event.target.value})
                     console.log(event.target.value)
+                    this.setState({inputValue:event.target.value})
                 }}/>
                 <Button >{this.props.textx} </Button>
             </div>
