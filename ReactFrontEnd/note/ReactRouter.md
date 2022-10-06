@@ -420,3 +420,83 @@ function App() {
 ## Tips
 
 When child router needs routes component, then you need to add `/*` in it's father router, the number of `*` you need to add depends on the level of your child router.
+
+# History
+
+history.push
+
+# Dynamic Router
+
+```jsx
+function App() {
+  return (
+    <Routes>
+      <Route path="invoices" element={<Invoices />}>
+        <Route path=":invoiceId" element={<Invoice />} />
+        <Route path="sent" element={<SentInvoices />} />
+      </Route>
+    </Routes>
+  );
+}
+
+//:invoiceId is a dynamic router
+
+//可以用props来在组件中拿到这个ID
+
+porps.match.params.invoiceId
+```
+
+## 动态路由参数传递
+
+### 方法一：动态路由传参(推荐)
+
+#### 发送
+
+```jsx
+history.push('/detail/${id}')
+```
+
+#### 接收
+
+```jsx
+porps.match.params.invoiceId
+```
+
+### 方法二：query传参(链接不能share)
+
+#### 发送
+
+```jsx
+history.push({pathname:'/detail',query:{myid:id}})
+```
+
+#### 接收
+
+```jsx
+porps.location.query.myid
+```
+
+### 方法三：state传参(链接不能share)
+
+#### 发送
+
+```jsx
+history.push({pathname:'/detail',state:{myid:id}})
+```
+
+#### 接收
+
+```jsx
+porps.location.state.myid
+```
+
+# 路由拦截
+
+```jsx
+                <BrowserRouter>
+                    <Routes>
+                        <Route path={'/home'} element={<MyTimer/>} />
+                        <Route path={'/h1'} element={<TodoList/>} />
+                    </Routes>
+                </BrowserRouter>
+```
