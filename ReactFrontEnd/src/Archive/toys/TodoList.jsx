@@ -31,9 +31,8 @@ class TodoList extends Component {
 
     addTodoItem = (listText) => {
         this.setState({
-            list: [...this.state.list, {id: this.state.listId, title: listText}],
+            list: [...this.state.list, {id: this.state.listId, title: listText,isChecked: false,}],
             listId: this.state.listId + 1,
-            isChecked: false,
         })
     }
 
