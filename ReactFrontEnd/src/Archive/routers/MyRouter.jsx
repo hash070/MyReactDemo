@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Router, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Router, Routes} from "react-router-dom";
 import {Switch} from "antd";
 import MyTimer from "../toys/MyTimer.jsx";
 import TodoList from "../toys/TodoList.jsx";
@@ -30,7 +30,7 @@ class MyRouter extends Component {
     render() {
         return (
             <div>
-                <BrowserRouter>
+                <HashRouter>
                     <Routes>
                         <Route path={'/home'} element={<MyTimer/>}/>
                         <Route path={'/h1'} element={<TodoList/>}/>
@@ -38,7 +38,7 @@ class MyRouter extends Component {
                             return true ? <Authed/> : <UnAuthored/>
                         }}/>
                     </Routes>
-                </BrowserRouter>
+                </HashRouter>
             </div>
         );
     }
