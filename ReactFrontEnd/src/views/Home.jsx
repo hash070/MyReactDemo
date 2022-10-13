@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/Home.css';
-import {UploadOutlined, UserOutlined, VideoCameraOutlined} from '@ant-design/icons';
+import {UploadOutlined, UserOutlined,SlidersOutlined , VideoCameraOutlined, SettingOutlined} from '@ant-design/icons';
 import {Layout, Menu} from 'antd';
 
 const {Header, Content, Footer, Sider} = Layout;
 
 function Home(props) {
 
-    let title=['用户管理','数据管理','用户组','用户权限'];
+    let title=['用户管理','线型管理','用户组管理','数据导出'];
 
     return (
         <Layout style={{'height': '100vh'}}>
@@ -21,12 +21,12 @@ function Home(props) {
                     console.log(collapsed, type);
                 }}
             >
-                <div className="logo">管理后台</div>
+                <div className="logo">科学计算器管理后台</div>
                 <Menu
                     theme="dark"
                     mode="inline"
                     defaultSelectedKeys={['4']}
-                    items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
+                    items={[UserOutlined, SlidersOutlined, SettingOutlined, UploadOutlined].map(
                         (icon, index) => ({
                             key: String(index + 1),
                             icon: React.createElement(icon),
@@ -55,7 +55,7 @@ function Home(props) {
                             minHeight: 360,
                         }}
                     >
-                        content
+                        Test
                     </div>
                 </Content>
                 <Footer
@@ -63,7 +63,7 @@ function Home(props) {
                         textAlign: 'center',
                     }}
                 >
-                    Ant Design ©2018 Created by Ant UED
+                    ©2022 Created By hash070
                 </Footer>
             </Layout>
         </Layout>
